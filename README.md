@@ -3,7 +3,7 @@
 Search for movies by title and dive into detailed information about each film."
 
 
-<img src="screenshots/demo.gif" width="250" hspace="10"><img src="screenshots/pic.jpeg" width="250" hspace="10"><img src="screenshots/pic2.jpeg" width="250" hspace="10">
+<img src="screenshots/demo.gif" width="250" hspace="10"><img src="screenshots/pic1.jpeg" width="250" hspace="10"><img src="screenshots/pic2.jpeg" width="250" hspace="10">
 
 
 
