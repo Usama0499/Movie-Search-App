@@ -1,4 +1,4 @@
-# MovieSearchApp (Paging 3)
+# MovieSearchApp (Paging 3 => PagingSource)
 
 "Search for movies by title, explore detailed information about each film, and easily bookmark your favorites for quick access later."
 
