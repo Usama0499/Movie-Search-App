@@ -41,9 +41,7 @@ class BookmarkFragment : Fragment(R.layout.fragment_movie),
             buttonRetry.setOnClickListener { adapter.retry() }
 
             // Initialize SwipeRefreshLayout
-            swipeRefreshLayout.setOnRefreshListener {
-                swipeRefreshLayout.isRefreshing = false
-            }
+            swipeRefreshLayout.isEnabled = false
         }
 
 
@@ -69,8 +67,6 @@ class BookmarkFragment : Fragment(R.layout.fragment_movie),
                     textViewEmpty.isVisible = false
                 }
 
-                // Hide the SwipeRefreshLayout loading indicator
-                swipeRefreshLayout.isRefreshing = loadState.source.refresh is LoadState.Loading
             }
         }
 
