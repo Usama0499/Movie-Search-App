@@ -1,6 +1,7 @@
-package com.usama.moviesearchapp.api
+package com.usama.moviesearchapp.data.remote
 
 import com.usama.moviesearchapp.BuildConfig
+import com.usama.moviesearchapp.data.models.remote.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -38,4 +38,5 @@ ext {
     pagingVersion = '3.3.2'
     retrofitVersion = '2.11.0'
     testExtJunitVersion = '1.2.1'
+    room_version = '2.6.1'
 }

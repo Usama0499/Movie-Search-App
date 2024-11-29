@@ -1,4 +1,4 @@
-package com.usama.moviesearchapp.ui.movie
+package com.usama.moviesearchapp.ui.common.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.usama.moviesearchapp.R
-import com.usama.moviesearchapp.data.Movie
+import com.usama.moviesearchapp.data.models.remote.Movie
 import com.usama.moviesearchapp.databinding.ItemMovieBinding
 
 class MovieAdapter(private val listener: OnItemClickListener) :
@@ -42,6 +42,15 @@ class MovieAdapter(private val listener: OnItemClickListener) :
                     }
                 }
             }
+            binding.imageViewBookmark.setOnClickListener{
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onBookmarkClick(item)
+                    }
+                }
+            }
         }
 
         fun bind(movie: Movie) {
@@ -55,12 +64,20 @@ class MovieAdapter(private val listener: OnItemClickListener) :
 
                 movieTitle.text = movie.Title
                 movieYear.text = "Year: " + movie.Year
+
+                imageViewBookmark.setImageResource(
+                    when {
+                        movie.isBookmarked -> R.drawable.ic_bookmark_selected
+                        else -> R.drawable.ic_bookmark_unselected
+                    }
+                )
             }
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(photo: Movie)
+        fun onItemClick(movie: Movie)
+        fun onBookmarkClick(movie: Movie)
     }
 
     companion object {

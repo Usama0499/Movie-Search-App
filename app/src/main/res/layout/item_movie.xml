@@ -19,6 +19,22 @@
                 android:contentDescription="@string/poster_image"
                 android:padding="4dp" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/gradient"
+                android:layout_alignParentTop="true"/>
+
+            <ImageView
+                android:id="@+id/image_view_bookmark"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_margin="8dp"
+                android:layout_alignEnd="@id/movie_image"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_bookmark_unselected" />
+
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/movie_title"
                 style="@style/TextAppearance.AppCompat.Body1"

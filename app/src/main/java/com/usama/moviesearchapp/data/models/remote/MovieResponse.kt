@@ -1,6 +1,4 @@
-package com.usama.moviesearchapp.api
-
-import com.usama.moviesearchapp.data.Movie
+package com.usama.moviesearchapp.data.models.remote
 
 
 data class MovieResponse(

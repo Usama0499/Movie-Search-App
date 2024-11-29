@@ -1,8 +1,9 @@
-package com.usama.moviesearchapp.data
+package com.usama.moviesearchapp.data.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.usama.moviesearchapp.api.MovieApi
+import com.usama.moviesearchapp.data.local.db.AppDatabase
+import com.usama.moviesearchapp.data.models.remote.Movie
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -10,7 +11,8 @@ private const val MOVIE_STARTING_PAGE_INDEX = 1
 
 class MoviePagingSource(
     private val movieApi: MovieApi,
-    private val query: String
+    private val query: String,
+    private val appDatabase: AppDatabase
 ) : PagingSource<Int, Movie>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
@@ -18,7 +20,11 @@ class MoviePagingSource(
 
         return try {
             val response = movieApi.searchMovies(query, position)
-            val movies = response.Search?: emptyList()
+            /*val movies = response.Search?: emptyList()*/
+            val movies = response.Search?.map { movie ->
+                val isBookmarked = appDatabase.bookmarkDao().getBookmarkById(movie.imdbID) != null
+                movie.copy(isBookmarked = isBookmarked)
+            } ?: emptyList()
 
             LoadResult.Page(
                 data = movies,

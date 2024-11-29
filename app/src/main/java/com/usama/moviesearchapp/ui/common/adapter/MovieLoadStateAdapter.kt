@@ -1,4 +1,4 @@
-package com.usama.moviesearchapp.ui.movie
+package com.usama.moviesearchapp.ui.common.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

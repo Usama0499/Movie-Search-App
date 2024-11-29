@@ -23,6 +23,15 @@
 
         <argument
             android:name="movie"
-            app:argType="com.usama.moviesearchapp.data.Movie" />
+            app:argType="com.usama.moviesearchapp.data.models.remote.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.usama.moviesearchapp.ui.bookmark.BookmarkFragment"
+        android:label="@string/bookmark"
+        tools:layout="@layout/fragment_movie">
+        <action
+            android:id="@+id/action_bookmarkFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>

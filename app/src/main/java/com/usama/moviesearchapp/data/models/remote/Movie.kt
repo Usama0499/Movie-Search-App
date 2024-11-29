@@ -1,4 +1,4 @@
-package com.usama.moviesearchapp.data
+package com.usama.moviesearchapp.data.models.remote
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -9,5 +9,6 @@ data class Movie(
     val Title: String,
     val Type: String,
     val Year: String,
-    val imdbID: String
+    val imdbID: String,
+    val isBookmarked: Boolean = false
 ) : Parcelable
